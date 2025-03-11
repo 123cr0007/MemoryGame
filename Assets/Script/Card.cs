@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-	// Card class
-	// カードのマーク（スペードとか）
-	public string cardMark;
-
 	// カードの数字（1~13）
 	public int cardNumber;
 
 	// イメージ
-	public Sprite cardImage;
+	public Image cardImage;
 
+	// カードの情報をセットする
+	public void SetCardInfo(CardInfo cardInfo)
+	{
+		this.cardNumber = cardInfo.cardNumber;
+		this.cardImage.sprite = cardInfo.cardImage;
+	}
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		// カードの情報をセットする
+		CardInfo cardInfo = new CardInfo(1, Resources.Load<Sprite>("Image/spade/00_spade"));
+		SetCardInfo(cardInfo);
+	}
 }
 
 // カードの情報クラス
@@ -21,17 +32,14 @@ public class Card : MonoBehaviour
 public class CardInfo
 {
 	// 読み込み専用のプロパティにしたいためprivate set;をつける
-	// カードのマーク（スペードとか）
-	public string cardMark { get; private set; }
 	// カードの数字（1~13）
 	public int cardNumber { get; private set; }
 	// イメージ
 	public Sprite cardImage { get; private set; }
 
 	// コンストラクタ
-	public CardInfo(string cardMark, int cardNumber, Sprite cardImage)
+	public CardInfo(int cardNumber, Sprite cardImage)
 	{
-		this.cardMark = cardMark;
 		this.cardNumber = cardNumber;
 		this.cardImage = cardImage;
 	}

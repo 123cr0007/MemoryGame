@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140a0355b6bccef49bb5af466de4558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 4111404002472666304, guid: 600cda9a72fa64046a2d5d6c0bfbf1e2, type: 3}
+  cardPrefab: {fileID: 1679161670380228834, guid: 600cda9a72fa64046a2d5d6c0bfbf1e2, type: 3}
   grid: {fileID: 1104634147}
 --- !u!4 &303499495
 Transform:
