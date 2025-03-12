@@ -11,11 +11,27 @@ public class Card : MonoBehaviour
 	// イメージ
 	public Image cardImage;
 
+	// 選択されているかどうか
+	public bool isSelected;
+
 	// カードの情報をセットする
 	public void SetCardInfo(CardInfo cardInfo)
 	{
 		this.cardNumber = cardInfo.cardNumber;
 		this.cardImage.sprite = cardInfo.cardImage;
+		this.isSelected = false;
+	}
+
+	// ボタンが押されたときの処理
+	public void OnClick()
+	{
+		// 選択されているかどうか
+		if (!this.isSelected)
+		{
+			// 選択されている場合は非選択状態にする
+			this.isSelected = true;
+			Debug.Log("選択されました");
+		}
 	}
 }
 

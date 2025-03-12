@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System;
+using System.Linq;
 
 
 public class CardCreate : MonoBehaviour
@@ -11,7 +14,8 @@ public class CardCreate : MonoBehaviour
 	// グリッド（フィールド）
 	public Transform grid;
 
-	private int cardNumber = 11;
+	//　各マーク何枚まで使用するか
+	private int cardNumber = 10;
 
 	// Start is called before the first frame update
 	void Start()
@@ -78,6 +82,9 @@ public class CardCreate : MonoBehaviour
 			CardInfo cardInfo = new CardInfo(int.Parse(cardNum), cardImageList[i]);
 			cardInfoList.Add(cardInfo);
 		}
+
+		// カードのリストをシャッフル
+		cardInfoList = cardInfoList.OrderBy(value => Guid.NewGuid()).ToList();
 
 		// カードの生成
 		foreach (CardInfo cardInfo in cardInfoList)

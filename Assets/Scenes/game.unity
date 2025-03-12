@@ -567,10 +567,10 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 95, y: 150}
+  m_CellSize: {x: 140, y: 210}
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 1
-  m_ConstraintCount: 13
+  m_ConstraintCount: 10
 --- !u!1 &1614509843
 GameObject:
   m_ObjectHideFlags: 0
