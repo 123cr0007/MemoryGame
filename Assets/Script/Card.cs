@@ -17,14 +17,6 @@ public class Card : MonoBehaviour
 		this.cardNumber = cardInfo.cardNumber;
 		this.cardImage.sprite = cardInfo.cardImage;
 	}
-
-	// Start is called before the first frame update
-	void Start()
-	{
-		// カードの情報をセットする
-		CardInfo cardInfo = new CardInfo(1, Resources.Load<Sprite>("Image/spade/00_spade"));
-		SetCardInfo(cardInfo);
-	}
 }
 
 // カードの情報クラス
