@@ -15,7 +15,8 @@ public class CardCreate : MonoBehaviour
 	public Transform grid;
 
 	//　各マーク何枚まで使用するか
-	private int cardNumber = 10;
+	// タイトルの画面で設定する
+	private int cardNumber = TitleMain.GetUseCardNum();
 
 	// Start is called before the first frame update
 	void Start()
