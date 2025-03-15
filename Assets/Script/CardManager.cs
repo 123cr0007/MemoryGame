@@ -14,8 +14,9 @@ public class CardManager : MonoBehaviour
 	public List<Card> frontCardList;
 
 	// 裏返すカウント
-	public int turnCount;
-	private const int TURN_MAX_CNT = 60;
+	public float turnCount;
+	private const float TURN_MAX_CNT = 1.0f;
+
 
 
 	// Start is called before the first frame update
@@ -41,7 +42,8 @@ public class CardManager : MonoBehaviour
 		// 表のカードが2枚以上の場合
 		if (frontCardList.Count >= 2)
 		{
-			if(turnCount > TURN_MAX_CNT)
+			// カウントが最大値を超えた場合
+			if (turnCount > TURN_MAX_CNT)
 			{
 				// カードの番号が同じ場合
 				if (frontCardList[0].cardNumber == frontCardList[1].cardNumber)
@@ -67,7 +69,7 @@ public class CardManager : MonoBehaviour
 			}
 			else
 			{
-				turnCount++;
+				turnCount += Time.deltaTime;
 			}
 
 		}
