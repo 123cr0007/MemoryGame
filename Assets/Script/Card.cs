@@ -24,6 +24,9 @@ public class Card : MonoBehaviour
 		this.cardNumber = cardInfo.cardNumber;
 		this.cardImage.sprite = Resources.Load<Sprite>("Image/Back");
 		this.isSelected = false;
+
+		// マネージャーに情報をセット
+		CardManager.cardManagerInstance.cardList.Add(this);
 	}
 
 	// ボタンが押されたときの処理
@@ -38,6 +41,10 @@ public class Card : MonoBehaviour
 		// 選択されているかどうか
 		if (!this.isSelected)
 		{
+
+			// 選択した数+1
+			GameMain.selectCardNum++;
+
 			// 選択されている場合は非選択状態にする
 			this.isSelected = true;
 

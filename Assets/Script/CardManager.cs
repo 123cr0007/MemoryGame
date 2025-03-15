@@ -10,6 +10,9 @@ public class CardManager : MonoBehaviour
 	// インスタンス
 	public static CardManager cardManagerInstance;
 
+	// カードのリスト
+	public List<Card> cardList;
+
 	// 表のカードのリスト
 	public List<Card> frontCardList;
 
@@ -48,6 +51,10 @@ public class CardManager : MonoBehaviour
 				// カードの番号が同じ場合
 				if (frontCardList[0].cardNumber == frontCardList[1].cardNumber)
 				{
+					// カードリストから削除
+					cardList.Remove(frontCardList[0]);
+					cardList.Remove(frontCardList[1]);
+
 					// カードを消す
 					Destroy(frontCardList[0].gameObject);
 					Destroy(frontCardList[1].gameObject);
@@ -61,6 +68,12 @@ public class CardManager : MonoBehaviour
 					// カードの選択を解除
 					frontCardList[0].isSelected = false;
 					frontCardList[1].isSelected = false;
+				}
+
+				// カードのリストが0ならリザルト画面へ
+				if (cardList.Count == 0)
+				{
+					GameMain.gameMainInstance.MoveToResult();
 				}
 
 				// 初期化
