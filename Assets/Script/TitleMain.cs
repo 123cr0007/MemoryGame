@@ -9,6 +9,7 @@ public class TitleMain : MonoBehaviour
 
 	// インスタンス
 	public static TitleMain titleMainInstance = null;
+	public static bool isTitle = false;
 
 	// Start is called before the first frame update
 	void Start()
@@ -16,6 +17,7 @@ public class TitleMain : MonoBehaviour
 		// インスタンスを代入
 		titleMainInstance = this;
 		useCardNum = 5;
+		isTitle = true;
 	}
 
 
@@ -27,6 +29,12 @@ public class TitleMain : MonoBehaviour
 
 	public static int GetUseCardNum()
 	{
+		if (isTitle == false)
+		{
+			// タイトルをロード
+			SceneManager.LoadScene("title");
+		}
+
 		// カードの使用枚数を取得
 		Debug.Log(titleMainInstance.useCardNum);
 		return titleMainInstance.useCardNum;

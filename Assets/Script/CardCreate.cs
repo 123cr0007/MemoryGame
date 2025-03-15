@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using System;
 using System.Linq;
@@ -12,7 +13,8 @@ public class CardCreate : MonoBehaviour
 	public Card cardPrefab;
 
 	// グリッド（フィールド）
-	public Transform grid;
+	public Transform field;
+	public GridLayoutGroup grid;
 
 	//　各マーク何枚まで使用するか
 	// タイトルの画面で設定する
@@ -21,11 +23,8 @@ public class CardCreate : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		// ここテスト　
-		//Card card = Instantiate<Card>(this.cardPrefab, this.grid);
-
 		// タイトルのインスタンスが合ったらそこからカード枚数を取得
-		if (TitleMain.titleMainInstance != null)
+		if (TitleMain.GetUseCardNum() != 0)
 		{
 			cardNumber = TitleMain.GetUseCardNum();
 		}
@@ -34,6 +33,8 @@ public class CardCreate : MonoBehaviour
 			// 無かったら最大値（10）を設定
 			cardNumber = 10;
 		}
+
+		grid.constraintCount = cardNumber;
 
 		// カードデータのリスト
 		List<CardInfo> cardInfoList = new List<CardInfo>();
@@ -101,7 +102,7 @@ public class CardCreate : MonoBehaviour
 		// カードの生成
 		foreach (CardInfo cardInfo in cardInfoList)
 		{
-			Card card = Instantiate<Card>(this.cardPrefab, this.grid);
+			Card card = Instantiate<Card>(this.cardPrefab, this.field);
 			card.SetCardInfo(cardInfo);
 		}
 	}
