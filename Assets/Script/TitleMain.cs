@@ -8,7 +8,7 @@ public class TitleMain : MonoBehaviour
 	public int useCardNum;
 
 	// インスタンス
-	public static TitleMain titleMainInstance;
+	public static TitleMain titleMainInstance = null;
 
 	// Start is called before the first frame update
 	void Start()

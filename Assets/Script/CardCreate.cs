@@ -16,13 +16,24 @@ public class CardCreate : MonoBehaviour
 
 	//　各マーク何枚まで使用するか
 	// タイトルの画面で設定する
-	private int cardNumber = TitleMain.GetUseCardNum();
+	private int cardNumber;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		// ここテスト　
 		//Card card = Instantiate<Card>(this.cardPrefab, this.grid);
+
+		// タイトルのインスタンスが合ったらそこからカード枚数を取得
+		if (TitleMain.titleMainInstance != null)
+		{
+			cardNumber = TitleMain.GetUseCardNum();
+		}
+		else
+		{
+			// 無かったら最大値（10）を設定
+			cardNumber = 10;
+		}
 
 		// カードデータのリスト
 		List<CardInfo> cardInfoList = new List<CardInfo>();
