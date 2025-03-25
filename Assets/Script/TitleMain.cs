@@ -15,6 +15,7 @@ public class TitleMain : MonoBehaviour
 	void Start()
 	{
 		// インスタンスを代入
+		titleMainInstance = null;
 		titleMainInstance = this;
 		useCardNum = 5;
 		isTitle = true;

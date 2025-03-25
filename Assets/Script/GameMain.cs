@@ -10,7 +10,7 @@ public class GameMain : MonoBehaviour
 	public static GameMain gameMainInstance;
 
 	// 経過時間
-	private float elapsedTime;
+	private float elapsedTime = 0;
 	public string timeCnt;
 
 	// カードを選択した数
@@ -23,8 +23,10 @@ public class GameMain : MonoBehaviour
 	void Start()
     {
 		// インスタンスを代入
+		gameMainInstance = null;
 		gameMainInstance = this;
 		elapsedTime = 0.0f;
+		selectCardNum = 0;
 	}
 
     // Update is called once per frame

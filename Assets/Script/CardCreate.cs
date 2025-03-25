@@ -18,17 +18,17 @@ public class CardCreate : MonoBehaviour
 
 	//　各マーク何枚まで使用するか
 	// タイトルの画面で設定する
-	private int cardNumber;
+	private static int cardNumber;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		// タイトルのインスタンスが合ったらそこからカード枚数を取得
-		if (TitleMain.GetUseCardNum() != 0)
+		if (TitleMain.GetUseCardNum() != 0 && cardNumber <= 0)
 		{
 			cardNumber = TitleMain.GetUseCardNum();
 		}
-		else
+		else if (cardNumber <= 0)
 		{
 			// 無かったら最大値（10）を設定
 			cardNumber = 10;
